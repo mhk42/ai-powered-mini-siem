@@ -20,7 +20,7 @@ The alert detail view shows the seeded brute-force detection, related evidence, 
 - Normalized event and alert views with search and severity filtering.
 - Alert detail drawer with related evidence and status updates.
 - Deterministic rules for brute force, login-after-failures, new admin accounts, encoded PowerShell, and unusual login times.
-- Upload support for `.log`, `.json`, and `.csv` files.
+- Upload support for `.log`, `.json`, and `.csv` files with automatic event normalization and alert generation.
 - Gemini-powered alert summaries and response recommendations.
 
 ## Requirements
@@ -51,7 +51,7 @@ Open an alert, then choose **Analyze with Gemini**. The deterministic detections
 
 ## Uploading logs
 
-Use **Ingest sample logs** on the dashboard or the upload dialog to add a `.log`, `.json`, or `.csv` file. Uploaded records are parsed into normalized events and stored in the local SQLite workspace. Files are treated as data and are never executed.
+Use **Ingest sample logs** on the dashboard or the upload dialog to add a `.log`, `.json`, or `.csv` file. Uploaded records are parsed into normalized events, stored in the local SQLite workspace, and evaluated against the deterministic detection rules. Matching activity creates new alerts or updates matching existing alerts, so a serious pattern such as repeated low-severity authentication failures can appear as a high-severity alert. Files are treated as data and are never executed.
 
 ## Scripts
 
