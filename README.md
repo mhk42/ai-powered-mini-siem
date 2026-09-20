@@ -10,7 +10,7 @@ Sentinel Desk is a local-first mini SIEM for exploring normalized security event
 
 ### Alert detail and AI assistant
 
-The alert detail view shows the seeded brute-force detection, related evidence, and the AI action without running it. Detection and alert generation remain deterministic; Gemini is an optional analyst-assistance layer.
+The alert detail view shows the seeded brute-force detection, related evidence, and the integrated AI action without running it. Detection and alert generation remain deterministic; Gemini provides analyst assistance for alert review.
 
 ![Alert detail with Gemini analyst assistant](public/alert-detail-ai.png)
 
@@ -21,7 +21,7 @@ The alert detail view shows the seeded brute-force detection, related evidence, 
 - Alert detail drawer with related evidence and status updates.
 - Deterministic rules for brute force, login-after-failures, new admin accounts, encoded PowerShell, and unusual login times.
 - Upload support for `.log`, `.json`, and `.csv` files.
-- Optional Gemini-powered alert summaries and response recommendations.
+- Gemini-powered alert summaries and response recommendations.
 
 ## Requirements
 
@@ -39,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The first request creates `data/siem.db` and seeds the workspace from `lib/siem-data.ts`. The `data/` directory is ignored by Git because it contains local runtime state.
 
-## Optional Gemini setup
+## Gemini configuration
 
 Create `.env.local` and add a Gemini API key:
 
@@ -47,7 +47,7 @@ Create `.env.local` and add a Gemini API key:
 GEMINI_API_KEY=your_key_here
 ```
 
-Open an alert, then choose **Analyze with Gemini**. If the key is absent or the provider quota is unavailable, the rest of the SIEM continues to work and deterministic detections remain available.
+Open an alert, then choose **Analyze with Gemini**. The deterministic detections remain available while the Gemini key or provider quota is unavailable.
 
 ## Uploading logs
 
